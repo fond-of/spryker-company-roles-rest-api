@@ -26,10 +26,10 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
+    public function findCompanyRoleCollectionByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
     {
         $customerTransfer->requireIdCustomer();
 
-        return $this->companyRolesRestApiRepository->findCompanyRolesByIdCustomer($customerTransfer->getIdCustomer());
+        return $this->companyRolesRestApiRepository->findCompanyRoleCollectionByIdCustomer($customerTransfer->getIdCustomer());
     }
 }

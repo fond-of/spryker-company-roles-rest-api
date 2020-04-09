@@ -16,10 +16,10 @@ class CompanyRolesRestApiClient extends AbstractClient implements CompanyRolesRe
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
+    public function findCompanyRoleCollectionByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
     {
         return $this->getFactory()
             ->createZedCompanyRolesRestApiStub()
-            ->findCompanyRolesByIdCustomer($customerTransfer);
+            ->findCompanyRoleCollectionByIdCustomer($customerTransfer);
     }
 }

@@ -16,8 +16,8 @@ class GatewayController extends AbstractGatewayController
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomerAction(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
+    public function findCompanyRoleCollectionByIdCustomerAction(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
     {
-        return $this->getFacade()->findCompanyRolesByIdCustomer($customerTransfer);
+        return $this->getFacade()->findCompanyRoleCollectionByIdCustomer($customerTransfer);
     }
 }

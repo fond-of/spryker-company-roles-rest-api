@@ -26,10 +26,10 @@ class CompanyRolesRestApiStub implements CompanyRolesRestApiStubInterface
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
+    public function findCompanyRoleCollectionByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
     {
         /** @var \Generated\Shared\Transfer\CompanyRoleCollectionTransfer $companyRoleCollectionTransfer */
-        $companyRoleCollectionTransfer = $this->zedRequestClient->call('/company-roles-rest-api/gateway/find-company-roles-by-id-customer', $customerTransfer);
+        $companyRoleCollectionTransfer = $this->zedRequestClient->call('/company-roles-rest-api/gateway/find-company-role-collection-by-id-customer', $customerTransfer);
 
         return $companyRoleCollectionTransfer;
     }

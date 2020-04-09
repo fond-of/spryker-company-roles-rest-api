@@ -11,5 +11,5 @@ interface CompanyRolesRestApiRepositoryInterface
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomer(string $idCustomer): CompanyRoleCollectionTransfer;
+    public function findCompanyRoleCollectionByIdCustomer(string $idCustomer): CompanyRoleCollectionTransfer;
 }

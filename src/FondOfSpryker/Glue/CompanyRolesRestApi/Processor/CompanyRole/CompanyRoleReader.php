@@ -5,9 +5,7 @@ namespace FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole;
 use FondOfSpryker\Client\CompanyRolesRestApi\CompanyRolesRestApiClientInterface;
 use FondOfSpryker\Glue\CompanyRolesRestApi\CompanyRolesRestApiConfig;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Dependency\Client\CompanyRolesRestApiToCompanyRoleClientInterface;
-use FondOfSpryker\Glue\CompanyRolesRestApi\Dependency\Client\CompanyRolesRestApiToCompanyUserClientInterface;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiErrorInterface;
-use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiValidatorInterface;
 use Generated\Shared\Transfer\CompanyRoleCollectionTransfer;
 use Generated\Shared\Transfer\CompanyRoleTransfer;
 use Generated\Shared\Transfer\CustomerTransfer;
@@ -34,22 +32,12 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
     protected $companyRoleClient;
 
     /**
-     * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiValidatorInterface
-     */
-    protected $restApiValidator;
-
-    /**
      * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiErrorInterface
      */
     protected $restApiError;
 
     /**
-     * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Dependency\Client\CompanyRolesRestApiToCompanyUserClientInterface
-     */
-    protected $companyUserClient;
-
-    /**
-     * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRolesRestApiClientInterface
+     * @var \FondOfSpryker\Client\CompanyRolesRestApi\CompanyRolesRestApiClientInterface
      */
     protected $companyRolesRestApiClient;
 
@@ -57,8 +45,6 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
      * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
      * @param \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleMapperInterface $companyRoleMapper
      * @param \FondOfSpryker\Glue\CompanyRolesRestApi\Dependency\Client\CompanyRolesRestApiToCompanyRoleClientInterface $companyRoleClient
-     * @param \FondOfSpryker\Glue\CompanyRolesRestApi\Dependency\Client\CompanyRolesRestApiToCompanyUserClientInterface $companyUserClient
-     * @param \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiValidatorInterface $restApiValidator
      * @param \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiErrorInterface $restApiError
      * @param \FondOfSpryker\Client\CompanyRolesRestApi\CompanyRolesRestApiClientInterface $companyRolesRestApiClient
      */
@@ -66,16 +52,12 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
         RestResourceBuilderInterface $restResourceBuilder,
         CompanyRoleMapperInterface $companyRoleMapper,
         CompanyRolesRestApiToCompanyRoleClientInterface $companyRoleClient,
-        CompanyRolesRestApiToCompanyUserClientInterface $companyUserClient,
-        RestApiValidatorInterface $restApiValidator,
         RestApiErrorInterface $restApiError,
         CompanyRolesRestApiClientInterface $companyRolesRestApiClient
     ) {
         $this->restResourceBuilder = $restResourceBuilder;
         $this->companyRoleMapper = $companyRoleMapper;
         $this->companyRoleClient = $companyRoleClient;
-        $this->companyUserClient = $companyUserClient;
-        $this->restApiValidator = $restApiValidator;
         $this->restApiError = $restApiError;
         $this->companyRolesRestApiClient = $companyRolesRestApiClient;
     }
@@ -111,6 +93,7 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
 
     /**
      * @param \Generated\Shared\Transfer\CompanyRoleTransfer $companyRoleTransfer
+     * @param \Generated\Shared\Transfer\RestUserTransfer $restUserTransfer
      *
      * @return bool
      */
@@ -119,7 +102,7 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
         $customerTransfer = (new CustomerTransfer())
             ->setIdCustomer($restUserTransfer->getSurrogateIdentifier());
 
-        $companyRoleCollectionTransfer = $this->companyRolesRestApiClient->findCompanyRolesByIdCustomer($customerTransfer);
+        $companyRoleCollectionTransfer = $this->companyRolesRestApiClient->findCompanyRoleCollectionByIdCustomer($customerTransfer);
 
         foreach ($companyRoleCollectionTransfer->getRoles() as $companyRole) {
             if ($companyRole->getUuid() === $companyRoleTransfer->getUuid()) {
@@ -135,14 +118,14 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
      *
      * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
      */
-    public function findCompanyRolesByIdCustomer(RestRequestInterface $restRequest): RestResponseInterface
+    public function findCompanyRoleCollectionByIdCustomer(RestRequestInterface $restRequest): RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();
 
         $customerTransfer = (new CustomerTransfer())
             ->setIdCustomer($restRequest->getRestUser()->getSurrogateIdentifier());
 
-        $companyRolesTransferMock = $this->companyRolesRestApiClient->findCompanyRolesByIdCustomer($customerTransfer);
+        $companyRolesTransferMock = $this->companyRolesRestApiClient->findCompanyRoleCollectionByIdCustomer($customerTransfer);
 
         if ($companyRolesTransferMock->getRoles()->count() === 0) {
             return $this->restApiError->addCompanyRoleNotFoundError($restResponse);

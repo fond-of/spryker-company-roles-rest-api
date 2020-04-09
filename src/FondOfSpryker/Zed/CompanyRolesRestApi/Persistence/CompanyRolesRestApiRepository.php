@@ -15,7 +15,7 @@ class CompanyRolesRestApiRepository extends AbstractRepository implements Compan
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomer(string $idCustomer): CompanyRoleCollectionTransfer
+    public function findCompanyRoleCollectionByIdCustomer(string $idCustomer): CompanyRoleCollectionTransfer
     {
         $companyRoleEntity = $this->getFactory()
             ->createCompanyRoleQuery()

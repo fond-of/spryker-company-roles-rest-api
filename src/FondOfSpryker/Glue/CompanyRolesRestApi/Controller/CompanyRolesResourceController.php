@@ -26,6 +26,6 @@ class CompanyRolesResourceController extends AbstractController
 
         return $this->getFactory()
             ->createCompanyRoleReader()
-            ->findCompanyRolesByIdCustomer($restRequest);
+            ->findCompanyRoleCollectionByIdCustomer($restRequest);
     }
 }

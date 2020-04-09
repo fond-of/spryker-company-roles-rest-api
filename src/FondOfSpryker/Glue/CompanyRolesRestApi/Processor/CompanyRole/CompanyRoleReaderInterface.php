@@ -19,5 +19,5 @@ interface CompanyRoleReaderInterface
      *
      * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
      */
-    public function findCompanyRolesByIdCustomer(RestRequestInterface $restRequest): RestResponseInterface;
+    public function findCompanyRoleCollectionByIdCustomer(RestRequestInterface $restRequest): RestResponseInterface;
 }

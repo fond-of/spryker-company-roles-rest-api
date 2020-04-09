@@ -17,10 +17,10 @@ class CompanyRolesRestApiFacade extends AbstractFacade implements CompanyRolesRe
      *
      * @return \Generated\Shared\Transfer\CompanyRoleCollectionTransfer
      */
-    public function findCompanyRolesByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
+    public function findCompanyRoleCollectionByIdCustomer(CustomerTransfer $customerTransfer): CompanyRoleCollectionTransfer
     {
         return $this->getFactory()
-            ->createCompanyRolesReader()
-            ->findCompanyRolesByIdCustomer($customerTransfer);
+            ->createCompanyRoleReader()
+            ->findCompanyRoleCollectionByIdCustomer($customerTransfer);
     }
 }
