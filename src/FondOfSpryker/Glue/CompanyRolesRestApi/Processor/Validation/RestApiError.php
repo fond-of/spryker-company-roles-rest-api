@@ -17,9 +17,9 @@ class RestApiError implements RestApiErrorInterface
     public function addCompanyRoleUuidMissingError(RestResponseInterface $restResponse): RestResponseInterface
     {
         $restErrorMessageTransfer = (new RestErrorMessageTransfer())
-            ->setCode(CompanyRolesRestApiConfig::RESPONSE_CODE_EXTERNAL_REFERENCE_MISSING)
+            ->setCode(CompanyRolesRestApiConfig::RESPONSE_CODE_UUID_MISSING)
             ->setStatus(Response::HTTP_BAD_REQUEST)
-            ->setDetail(CompanyRolesRestApiConfig::RESPONSE_DETAILS_EXTERNAL_REFERENCE_MISSING);
+            ->setDetail(CompanyRolesRestApiConfig::RESPONSE_DETAIL_UUID_MISSING);
 
         return $restResponse->addError($restErrorMessageTransfer);
     }

@@ -10,8 +10,8 @@ class CompanyRolesRestApiConfig extends AbstractBundleConfig
     public const CONTROLLER_COMPANY_ROLES = 'company-roles-resource';
     public const ACTION_COMPANY_ROLES_GET = 'get';
 
-    public const RESPONSE_CODE_EXTERNAL_REFERENCE_MISSING = '800';
-    public const RESPONSE_DETAILS_EXTERNAL_REFERENCE_MISSING = 'External reference is missing.';
+    public const RESPONSE_CODE_UUID_MISSING = '800';
+    public const RESPONSE_DETAIL_UUID_MISSING = 'Uuid is missing.';
 
     public const RESPONSE_CODE_COMPANY_ROLE_NOT_FOUND = '801';
     public const RESPONSE_DETAILS_COMPANY_ROLE_NOT_FOUND = 'Company role not found.';
