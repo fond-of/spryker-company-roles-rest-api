@@ -75,7 +75,7 @@ class CompanyRolesResourceControllerTest extends Unit
 
         $this->companyRolesResourceController = new class (
             $this->companyRolesRestApiFactoryMock
-        )extends CompanyRolesResourceController {
+        ) extends CompanyRolesResourceController {
 
             /**
              * @var \FondOfSpryker\Glue\CompanyRolesRestApi\CompanyRolesRestApiFactory
