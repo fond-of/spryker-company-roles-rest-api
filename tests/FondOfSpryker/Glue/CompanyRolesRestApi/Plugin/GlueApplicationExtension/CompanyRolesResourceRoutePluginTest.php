@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyRolesRestApi\Plugin;
+namespace FondOfSpryker\Glue\CompanyRolesRestApi\Plugin\GlueApplicationExtension;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Glue\CompanyRolesRestApi\CompanyRolesRestApiConfig;
@@ -10,7 +10,7 @@ use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollect
 class CompanyRolesResourceRoutePluginTest extends Unit
 {
     /**
-     * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Plugin\CompanyRolesResourceRoutePlugin
+     * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Plugin\GlueApplicationExtension\CompanyRolesResourceRoutePlugin
      */
     protected $companyRolesResourceRoutePlugin;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyRolesRestApi\Plugin;
+namespace FondOfSpryker\Glue\CompanyRolesRestApi\Plugin\GlueApplicationExtension;
 
 use FondOfSpryker\Glue\CompanyRolesRestApi\CompanyRolesRestApiConfig;
 use Generated\Shared\Transfer\RestCompanyRoleAttributesTransfer;

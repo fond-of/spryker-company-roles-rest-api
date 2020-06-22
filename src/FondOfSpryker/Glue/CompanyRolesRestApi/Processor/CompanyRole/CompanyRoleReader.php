@@ -27,7 +27,7 @@ class CompanyRoleReader implements CompanyRoleReaderInterface
     protected $companyRoleMapper;
 
     /**
-     * @var \Spryker\Client\CompanyRole\CompanyRoleClientInterface
+     * @var \FondOfSpryker\Glue\CompanyRolesRestApi\Dependency\Client\CompanyRolesRestApiToCompanyRoleClientInterface
      */
     protected $companyRoleClient;
 

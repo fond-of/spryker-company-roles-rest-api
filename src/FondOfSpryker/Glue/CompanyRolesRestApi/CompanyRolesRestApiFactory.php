@@ -9,6 +9,8 @@ use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleRead
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleReaderInterface;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiError;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiErrorInterface;
+use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleResourceRelationshipExpander;
+use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleResourceRelationshipExpanderInterface;
 use Spryker\Glue\Kernel\AbstractFactory;
 
 /**
@@ -16,6 +18,17 @@ use Spryker\Glue\Kernel\AbstractFactory;
  */
 class CompanyRolesRestApiFactory extends AbstractFactory
 {
+    /**
+     * @return \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleResourceRelationshipExpanderInterface
+     */
+    public function createCompanyRoleResourceRelationshipExpander(): CompanyRoleResourceRelationshipExpanderInterface
+    {
+        return new CompanyRoleResourceRelationshipExpander(
+            $this->getResourceBuilder(),
+            $this->createCompanyRoleMapper()
+        );
+    }
+
     /**
      * @return \FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleReaderInterface
      */

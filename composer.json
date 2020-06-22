@@ -4,14 +4,13 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Markus Nörenberg",
-      "email": "noerenberg.markus@gmail.com"
+      "name": "Daniel Rose",
+      "email": "daniel-rose@gmx.de"
     }
   ],
   "require": {
     "php": ">=7.1",
-    "spryker/company-roles-rest-api": "^1.0.0",
-    "spryker/zed-request": "^3.0.0"
+    "spryker/company-role": "^1.5"
   },
   "require-dev": {
     "codeception/codeception": "^2.4",
