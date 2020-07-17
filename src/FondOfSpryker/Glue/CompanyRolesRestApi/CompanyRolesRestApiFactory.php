@@ -7,10 +7,10 @@ use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleMapp
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleMapperInterface;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleReader;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleReaderInterface;
-use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiError;
-use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiErrorInterface;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleResourceRelationshipExpander;
 use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\CompanyRole\CompanyRoleResourceRelationshipExpanderInterface;
+use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiError;
+use FondOfSpryker\Glue\CompanyRolesRestApi\Processor\Validation\RestApiErrorInterface;
 use Spryker\Glue\Kernel\AbstractFactory;
 
 /**
